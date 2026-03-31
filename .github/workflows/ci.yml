@@ -22,6 +22,6 @@ jobs:
         pip install pytest
 
     - name: Run tests
-      run:
-      export PYTHONPATH=$PYTHONPATH:./src #Tuve que agregar esta linea para que python supiera donde buscar los test
+      run: |
+      export PYTHONPATH=$PYTHONPATH:./src
       pytest -q
