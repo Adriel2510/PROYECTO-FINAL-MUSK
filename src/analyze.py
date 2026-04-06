@@ -1,11 +1,8 @@
 import json
 import pandas as pd
-from src.funcionals_utils import mapear_clientes, leer_archivo_ventas, normalizar_clientes
+from src.funcionals_utils import mapear_clientes, leer_archivo_ventas
 from src.sales_collection import SalesCollection
 from src.client_collection import ClientCollection
-from decimal import Decimal, ROUND_HALF_UP
-
-
 
 #1.Número total de clientes
 
@@ -95,8 +92,10 @@ def ventas_acumuladas(ventas):
 
 
 def generate_report():
+    """""
+    Genera un reporte en el formato deseado.
+    """""
     clientes = mapear_clientes()
-    clientes_normalizados = normalizar_clientes(clientes)
     ventas = leer_archivo_ventas()
 
     col_clientes = ClientCollection(clientes)

@@ -1,6 +1,37 @@
 import pandas as pd
 from decimal import Decimal, ROUND_HALF_UP
 class SalesCollection():
+
+    """
+    Se encarga de gestionar las instancias de Sale, y normaliza la entrada de ellos convirtiendolos en un DataFrame.
+
+    Atributos:
+        ventas: Lista o DataFrame de todas las ventas.
+
+    Metodos:
+       -sales_by_client(client_id):
+        Busca un cliente a partir de su client_id y muestra todas las ventas de un cliente en particular.
+        Devuelve:
+            List: Una lista de diccionarios con todas las ventas de un cliente en particular,
+            si no hay ningun cliente que tenga el client_id que se busca, la lista estera vacia.
+        
+       -total_amount_by_client(client_id)::
+        Busca un cliente a partir de su client_id y muestra el gasto total sumando todas sus ventas.
+        Devuelve:
+            Float: Total gastado por dicho cliente
+
+       -total_amount_by_category(category):
+        Dada una categoria, mostrara la suma de todas las ventas en dicha categoria.
+        Devuelve:
+            Float: Suma total de las ventas en dicha categoria.
+
+       -avarage_sale_by_client(client_id):
+        Busca un cliente a partir de su client_id y muestra el promedio del gasto de sus ventas.
+        Devuelve:
+            float:El promedio gastado de este cliente redondeado aritmeticamente. Si no se encuentra
+            el cliente devolvera 0.0
+    """
+
     def __init__(self, ventas):
         if isinstance(ventas, pd.DataFrame):
             self.ventas = ventas
